@@ -79,11 +79,13 @@ body {
     color: #000;
   }
   
+  
   .weather-forecast-date {
     font-size: 16px;
     opacity: 0.5;
+    
   }
-  
+
   .weather-forecast-temperature-min {
     opacity: 0.5;
   }
@@ -91,3 +93,8 @@ body {
   .weather-forecast-temperatures {
     font-size: 13px;
   }
+
+
+
+
+
