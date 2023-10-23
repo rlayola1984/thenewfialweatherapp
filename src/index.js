@@ -68,9 +68,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "29446883ed36931dddf81ad62f58909c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  let apiKey = "c29446883ed36931dddf81ad62f58909";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Lisbon&key=c29446883ed36931dddf81ad62f58909&units=metric;
 }
 
 function displayTemperature(response) {
@@ -91,3 +90,26 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
+}
+
+function search(city) {
+  let apiKey = "c29446883ed36931dddf81ad62f58909";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Lisbon&key=c29446883ed36931dddf81ad62f58909&units;
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
